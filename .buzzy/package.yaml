@@ -1,0 +1,7 @@
+name: nettle
+license: LGPL
+autotools:
+  configure:
+    args:
+      - --disable-openssl
+      - --disable-public-key
