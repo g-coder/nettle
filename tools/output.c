@@ -290,10 +290,11 @@ void
 sexp_put_digest(struct sexp_output *output)
 {
   TMP_DECL(digest, uint8_t, NETTLE_MAX_HASH_DIGEST_SIZE);
-  TMP_ALLOC(digest, output->hash->digest_size);
   
   assert(output->hash);
-
+  
+  TMP_ALLOC(digest, output->hash->digest_size);
+  
   output->hash->digest(output->ctx, output->hash->digest_size, digest);
 
   sexp_put_code_start(output, &nettle_base16);
